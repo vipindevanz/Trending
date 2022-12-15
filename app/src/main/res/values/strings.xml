@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Trending</string>
+    <string name="retry">Retry</string>
+    <string name="error_msg">Something went wrong…</string>
+    <string name="error_msg2">An alien is probably blocking your signal.</string>
 </resources>
