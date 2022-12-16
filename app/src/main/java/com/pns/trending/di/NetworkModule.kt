@@ -1,7 +1,7 @@
 package com.pns.trending.di
 
 import com.pns.trending.data.network.RepoApi
-import com.pns.trending.utilities.Constants
+import com.pns.trending.utilities.Utilities
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +17,7 @@ class NetworkModule {
     @Singleton
     @Provides
     fun providesRetrofit() : Retrofit{
-        return Retrofit.Builder().baseUrl(Constants.BASE_URL)
+        return Retrofit.Builder().baseUrl(Utilities.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

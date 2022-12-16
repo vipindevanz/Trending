@@ -3,7 +3,7 @@ package com.pns.trending.di
 import android.content.Context
 import androidx.room.Room
 import com.pns.trending.data.RepoDatabase
-import com.pns.trending.utilities.Constants.DB_NAME
+import com.pns.trending.utilities.Utilities.DB_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
