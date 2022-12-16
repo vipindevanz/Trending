@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -51,16 +51,67 @@
             android:layout_below="@+id/main_toolbar"
             android:background="@color/silver_grey" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/main_swipe_refresh_holder"
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/main_shimmer_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/main_view">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+                <include layout="@layout/repo_item_placeholder" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/main_swipe_refresh_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/main_view"
+            android:visibility="gone">
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/main_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_below="@+id/main_toolbar"
                 tools:listitem="@layout/repo_item_layout" />
 
@@ -69,9 +120,9 @@
         <RelativeLayout
             android:id="@+id/main_error_holder"
             android:layout_width="match_parent"
-            android:visibility="gone"
             android:layout_height="match_parent"
-            android:layout_below="@+id/main_view">
+            android:layout_below="@+id/main_view"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/main_error_image"

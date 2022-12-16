@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity(), ClickListener {
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         mainViewModel.reposLiveData.observe(this) {
+            binding.mainShimmerLayout.visibility = View.GONE
+            binding.mainSwipeRefreshHolder.visibility = View.VISIBLE
             list.clear()
             list.addAll(it)
             list.shuffle()
