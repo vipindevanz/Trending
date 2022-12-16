@@ -2,7 +2,7 @@ package com.pns.trending
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson
-import com.pns.trending.models.BuiltBy
+import com.pns.trending.data.entities.BuiltBy
 
 class Converters {
 
