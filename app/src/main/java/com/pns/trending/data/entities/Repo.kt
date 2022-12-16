@@ -22,5 +22,6 @@ data class Repo (
     var stars : Int,
     var forks : Int,
     var currentPeriodStars : Int,
-    var builtBy: List<BuiltBy>
+    var builtBy: List<BuiltBy>,
+    var expanded: Boolean = false
 )
