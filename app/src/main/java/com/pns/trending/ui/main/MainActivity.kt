@@ -16,7 +16,6 @@ import com.pns.trending.utilities.Utilities.EXPANDED_ITEM_POS
 import com.pns.trending.utilities.Utilities.isInternetAvailable
 import com.pns.trending.viewmodels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlin.properties.Delegates
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), ClickListener {
@@ -26,7 +25,6 @@ class MainActivity : AppCompatActivity(), ClickListener {
     private lateinit var adapter: RepoAdapter
     private var list = ArrayList<Repo>()
     private lateinit var mainViewModel: MainViewModel
-    private var status by Delegates.notNull<Boolean>()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,19 +41,6 @@ class MainActivity : AppCompatActivity(), ClickListener {
             list.addAll(it)
             list.shuffle()
             adapter.notifyDataSetChanged()
-        }
-
-        mainViewModel.status.observe(this){
-
-            status = it
-
-            if (it){
-                binding.mainErrorHolder.visibility = View.GONE
-                binding.mainSwipeRefreshHolder.visibility = View.VISIBLE
-            } else{
-                binding.mainSwipeRefreshHolder.visibility = View.GONE
-                binding.mainErrorHolder.visibility = View.VISIBLE
-            }
         }
 
         binding.mainSwipeRefreshHolder.apply {
@@ -80,11 +65,11 @@ class MainActivity : AppCompatActivity(), ClickListener {
         }
 
         binding.mainRetryBtn.setOnClickListener {
-            if (status){
+            if (isInternetAvailable(applicationContext)) {
                 binding.mainErrorHolder.visibility = View.GONE
                 binding.mainSwipeRefreshHolder.visibility = View.VISIBLE
             } else {
-                Toast.makeText(applicationContext, "Error!", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "Internet unavailable", Toast.LENGTH_LONG).show()
             }
         }
     }

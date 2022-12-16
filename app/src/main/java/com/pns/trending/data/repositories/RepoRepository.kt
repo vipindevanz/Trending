@@ -11,13 +11,9 @@ import javax.inject.Inject
 class RepoRepository @Inject constructor(private val repoApi: RepoApi, private val repoDatabase: RepoDatabase) {
 
     private val _repos = MutableLiveData<List<Repo>>()
-    private val _status = MutableLiveData<Boolean>()
 
     val repos: LiveData<List<Repo>>
     get() = _repos
-
-    val status: LiveData<Boolean>
-        get() = _status
 
     suspend fun getRepos(){
 
@@ -26,12 +22,8 @@ class RepoRepository @Inject constructor(private val repoApi: RepoApi, private v
             if (result.isSuccessful && result.body() != null) {
                 repoDatabase.getRepoDao().addRepos(result.body()!!)
                 _repos.postValue(result.body())
-                _status.postValue(true)
-            } else{
-                _status.postValue(false)
             }
         } catch (e : Exception){
-            _status.postValue(false)
             Log.d("TAG", e.toString())
             _repos.postValue(repoDatabase.getRepoDao().getrepos())
         }
