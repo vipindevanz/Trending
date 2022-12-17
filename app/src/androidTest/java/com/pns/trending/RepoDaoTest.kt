@@ -37,7 +37,7 @@ class RepoDaoTest {
         val repoList : List<Repo> = listOf(repo)
         repoDao.addRepos(repoList)
 
-        val result = repoDao.getRepos().getOrAwaitValue()
+        val result = repoDao.getRepos()
 
         Assert.assertEquals(1, result.size)
     }
