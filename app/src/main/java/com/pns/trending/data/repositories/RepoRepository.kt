@@ -25,7 +25,7 @@ class RepoRepository @Inject constructor(private val repoApi: RepoApi, private v
             }
         } catch (e : Exception){
             Log.d("TAG", e.toString())
-            _repos.postValue(repoDatabase.getRepoDao().getrepos())
+            _repos.postValue(repoDatabase.getRepoDao().getRepos())
         }
     }
 }
