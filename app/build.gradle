@@ -50,6 +50,13 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
+    implementation 'androidx.test.ext:junit-ktx:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.0'
+    implementation 'androidx.test.espresso:espresso-idling-resource:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.5.0'
+
     //For using viewModelScope
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     //For runBlockingTest, CoroutineDispatcher etc.
