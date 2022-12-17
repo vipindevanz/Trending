@@ -1,6 +1,5 @@
 package com.pns.trending.data.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -11,9 +10,9 @@ import com.pns.trending.data.entities.Repo
 interface RepoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addRepos(repos : List<Repo>)
+    suspend fun addRepos(repos: List<Repo>)
 
     @Query("SELECT * FROM Repo")
-    suspend fun getRepos() : List<Repo>
+    suspend fun getRepos(): List<Repo>
 
 }
