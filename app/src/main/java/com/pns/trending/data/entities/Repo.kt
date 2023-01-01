@@ -10,7 +10,7 @@ class BuiltBy {
 }
 
 @Entity
-data class Repo (
+data class Repo(
     var author: String,
     var name: String,
     var avatar: String,
@@ -19,9 +19,9 @@ data class Repo (
     var description: String,
     var language: String,
     var languageColor: String,
-    var stars : Int,
-    var forks : Int,
-    var currentPeriodStars : Int,
+    var stars: Int,
+    var forks: Int,
+    var currentPeriodStars: Int,
     var builtBy: List<BuiltBy>,
     var expanded: Boolean = false
 )

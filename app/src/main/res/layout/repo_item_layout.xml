@@ -4,18 +4,26 @@
 
     <data>
 
+        <variable
+            name="repo"
+            type="com.pns.trending.data.entities.Repo" />
+        
+<!--        <variable-->
+<!--            name="listener"-->
+<!--            type="com.pns.trending.ui.main.ClickListener" />-->
+
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/repo_main_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/repo_main_holder"
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
             android:id="@+id/repo_card_holder"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.LinearLayoutCompat
@@ -25,9 +33,10 @@
                 android:padding="10dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/repo_item_avatar"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:id="@+id/repo_item_avatar"
+                    image="@{repo.avatar}"
                     android:layout_weight="1"
                     tools:src="@mipmap/ic_launcher" />
 
@@ -46,30 +55,32 @@
                             android:id="@+id/repo_item_author"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@{repo.author}"
                             tools:text="Microsoft" />
 
                         <TextView
                             android:id="@+id/repo_item_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@{repo.name}"
                             android:textSize="16sp"
                             android:textStyle="bold"
-                            tools:text="Micro8" />
+                            tools:text="Microsoft" />
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <LinearLayout
+                        android:id="@+id/repo_item_desc_holder"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:id="@+id/repo_item_desc_holder"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <TextView
                             android:id="@+id/repo_item_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="Microsoft" />
+                            android:text="@{repo.description}" />
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -93,11 +104,11 @@
                                     tools:ignore="ContentDescription" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
                                     android:id="@+id/repo_item_language"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    tools:text="Java" />
+                                    android:text="@{repo.language}" />
 
                             </LinearLayout>
 
@@ -116,11 +127,11 @@
                                     android:src="@drawable/star_yellow_16" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
                                     android:id="@+id/repo_item_stars"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    tools:text="14,236" />
+                                    android:text="@{``+repo.stars}" />
 
                             </LinearLayout>
 
@@ -140,11 +151,11 @@
                                     android:src="@drawable/fork_black_16" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
                                     android:id="@+id/repo_item_forks"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    tools:text="336" />
+                                    android:text="@{Integer.valueOf(repo.forks).toString()}" />
 
                             </LinearLayout>
                         </RelativeLayout>
